@@ -7,11 +7,12 @@ const {passport, usuariosDao} = require('./utils/passport/passport.js');
 const RouterProductos = require('./utils/routes/productos.routes')
 const RouterApi = require('./utils/routes/api.routes');
 const RouterCarrito = require('./utils/routes/carrito.routes')
-const {mensajesDao} = require('./utils/daos/index.js');
+const DAOmensajeriaMongo = require('./utils/daos/DAO.mensajeria.mongo.js');
+mensajesDao = DAOmensajeriaMongo.getInstance()
 const { Server: ServerHTTP } = require("http")
 const { Server: IOServer } = require("socket.io")
 
-
+//Configuración de Express
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -33,27 +34,28 @@ app.use(
     }),
   })
 );
+
+//Configuración de Passport
 app.use(passport.initialize())
 app.use(passport.session())
-
 
 passport.serializeUser((user, done) => {
   done(null, user)
 })
-
 passport.deserializeUser((user, done) => {
   let usuario = usuariosDao.getByUser(user)
   done(null, usuario)
 })
 
+//Configuración de Rutas
 app.use('/productos',RouterProductos);
 app.use('/carrito',RouterCarrito);
 app.use('/', RouterApi);
-
 app.all('*', (req,res)=>{
   res.send("<h1>Error 404</h1>")
 })
 
+//Configuración de websockets
 const httpserver = new ServerHTTP(app);
 const io = new IOServer(httpserver);
 

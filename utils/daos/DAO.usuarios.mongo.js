@@ -1,3 +1,7 @@
+//****** Objetivo del archivo ********
+// Este archivo crea la clase para la gestion de usuarios como extension de ContenedorMongoDB
+// Son utilizadas en el archivo ./utils/controllers/api.controller.js
+
 const ContenedorMongoDB = require('../repositorios/ContenedorMongoDB.js');
 let instance = null
 

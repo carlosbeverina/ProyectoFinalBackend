@@ -1,3 +1,5 @@
+<!-- ****** Objetivo del archivo ******** -->
+<!-- Este archivo genera la vista de los mensajes enviados por el usuario -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,12 +12,12 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    
+
     <script src="/socket.io/socket.io.js"></script>
-    <title>Chat</title>
+    <title>Mensajes enviados por el usuario</title>
   </head>
   <body>
-   <div class="container mt-5">
+    <div class="container mt-5">
       <h1 class="text-primary">Centro de mensajes</h1>
       <h2 id="user"><%= user %></h2>
       <hr />
@@ -24,6 +26,7 @@
       </div>
       <hr />
     </div>
+    <!-- Archivo para funcionalidad de visualización de mensajes del usuario -->
     <script src="/js/indexUser.js"></script>
   </body>
 </html>

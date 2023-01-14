@@ -1,3 +1,6 @@
+//****** Objetivo del archivo ********
+// Este archivo configura el logger
+
 const winston = require('winston');
 const { transports } = require("winston");
 

@@ -1,3 +1,6 @@
+//****** Objetivo del archivo ********
+// Este archivo crea el transporter de nodemailer para ser utilizado
+
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({

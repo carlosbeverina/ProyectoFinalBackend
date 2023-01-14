@@ -1,3 +1,5 @@
+<!-- ****** Objetivo del archivo ******** -->
+<!-- Este archivo genera la interfaz para el registro de usuario. -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +42,7 @@
     function checkPassword(form) {
      const password = form.password.value;
       const confirmPassword = form.password2.value;
-  
+      //Verifica que los dos campos de password son iguales.
       if (password != confirmPassword) {
         alert("Los passwords deben coincidir.");
         return false;

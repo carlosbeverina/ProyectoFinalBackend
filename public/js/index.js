@@ -1,36 +1,33 @@
+//****** Objetivo del archivo ********
+// Este archivo contiene toda la funcionalidad para el funcionamiento del chat que es cargado como script en el arhivo ./views/chat.ejs
+
 const socket = io().connect();
 
-let boton = document.getElementById("enviar")
+let boton = document.getElementById("enviar");
 
-function test(){
-  alert('prueba')
+function test() {
+  alert("prueba");
 }
-
+// Funcion para agregar mensajes al servidor
 function addMessage() {
-
-  console.log("entro")
   const email = document.getElementById("email").value;
   const message = document.getElementById("msg").value;
-  let type = "Usuario"
-  if (email == "Sistema"){
-      type = "Sistema"
+  //Diferencia si el usuario que envia es el sistema o un usuario
+  let type = "Usuario";
+  if (email == "Sistema") {
+    type = "Sistema";
   }
   if (email.length <= 3) {
     alert("Debe completar el usuario");
     return false;
   }
   let datetime = new Date().toLocaleString();
-  const newMsg = { email, 
-              datetime,
-              message,
-              type
-                 };
+  const newMsg = { email, datetime, message, type };
   document.getElementById("msg").value = "";
   socket.emit("add-message", newMsg);
-  console.log("salio");
   return false;
 }
-
+// Funcion para cargar mensajes en el contenedor de chat.ejs
 function view(messages) {
   let html = [];
   const mens = document.getElementById("mensajes");
@@ -46,8 +43,9 @@ function view(messages) {
   mens.innerHTML = html;
 }
 
-boton.addEventListener('click',addMessage)
+boton.addEventListener("click", addMessage);
 
+//Recibe mensajes del Websockets y los muestra
 socket.on("message-server", (messages) => {
   view(messages);
 });
