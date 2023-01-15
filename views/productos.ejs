@@ -80,7 +80,7 @@
           sessionStorage.setItem("user", "<%=user%>");
         }
         let bod = JSON.stringify({ id_prod: `${id_prod}` });
-        let url = `/carrito/productos`;
+        let url = `https://final-beverina.onrender.com/carrito/productos`;
         response = await fetch(url, {
           method: "POST",
           body: bod,

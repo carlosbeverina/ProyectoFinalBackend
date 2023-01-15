@@ -63,7 +63,7 @@ const addToCart = async (req, res = response) => {
   }
   try {
     //Llama a la API de productos para conseguir los datos del producto a agregar
-    let url = `/productos/data/${body.id_prod}`;
+    let url = `https://final-beverina.onrender.com/productos/data/${body.id_prod}`;
     let item = await fetch(url);
     let newProd = await item.json();
     let carts = await carritoDao.getCartByEmail(correo);
