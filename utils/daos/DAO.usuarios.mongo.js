@@ -21,8 +21,9 @@ class DAOusuariosMongo extends ContenedorMongoDB{
     
     static getInstance(){
         if(!instance){
-            instance = new DAOusuariosMongo;
+            instance = new DAOusuariosMongo();
         }
+        return instance;
     }
 }
 
