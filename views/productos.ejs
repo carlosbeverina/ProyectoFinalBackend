@@ -80,7 +80,7 @@
           sessionStorage.setItem("user", "<%=user%>");
         }
         let bod = JSON.stringify({ id_prod: `${id_prod}` });
-        let url = `http://localhost:8080/carrito/productos`;
+        let url = `/carrito/productos`;
         response = await fetch(url, {
           method: "POST",
           body: bod,

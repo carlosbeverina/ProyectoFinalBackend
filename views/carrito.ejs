@@ -76,11 +76,11 @@
     <script>
       // Llama al API del envio de la orden
       const enviar = () => {
-        window.location.href = `http://localhost:8080/carrito/order/`;
+        window.location.href = `/carrito/order/`;
       };
       // Función para eliminar un producto del carrito.
       const del = async (id_prod) => {
-        let url = `http://localhost:8080/carrito/${id_prod}`;
+        let url = `/carrito/${id_prod}`;
         response = await fetch(url, {
           method: "DELETE",
         });
